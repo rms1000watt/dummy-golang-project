@@ -10,6 +10,7 @@ build-go-docker:
 
 .PHONY: build-go-local
 build-go-local:
+	@ echo "Building go binary.."
 	@ GOOS=linux GOARCH=amd64 GCO_ENABLED=0 go build -a -tags netgo -installsuffix netgo -o bin/dummy-server-linux
 	@ echo "Built:"
 	@ echo "    bin/server-linux"
