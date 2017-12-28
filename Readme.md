@@ -1,0 +1,20 @@
+# Dummy Golang Project
+
+## Introduction
+
+This is a dummy golang project used as reference for other projects such as: [https://github.com/rms1000watt/hello-world-concourse](https://github.com/rms1000watt/hello-world-concourse)
+
+## Contents
+
+- [Usage](#usage)
+
+## Usage
+
+Build, run, observe, stop:
+
+```bash
+make
+docker run -itd --rm --name dummy-server -p 9999:9999 rms1000watt/dummy-server
+open http://localhost:9999/pizza
+docker stop dummy-server
+```
