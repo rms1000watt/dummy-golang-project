@@ -14,7 +14,7 @@ Build, run, observe, stop:
 
 ```bash
 make
-docker run -itd --rm --name dummy-server -p 9999:9999 rms1000watt/dummy-server
+docker run -itd --rm --name dummy-server -p 9999:9999 rms1000watt/dummy-server:latest
 open http://localhost:9999/pizza
 docker stop dummy-server
 ```
