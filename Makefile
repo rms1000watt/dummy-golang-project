@@ -1,9 +1,8 @@
 default: build
 
-GO_VERSION ?= 1.9.2-alpine3.7
-
+GO_DOCKER_VERSION ?= 1.9.2-alpine3.7
 GO_COMMAND_BUILD := GOOS=linux GOARCH=amd64 GCO_ENABLED=0 go build -a -tags netgo -installsuffix netgo -o bin/dummy-server-linux
-DOCKER_COMMAND_GO := docker run -it --rm -v $(shell go env GOPATH):/go -w /go/src/github.com/rms1000watt/dummy-golang-project golang:$(GO_VERSION) sh -c "$(GO_COMMAND_BUILD)"
+DOCKER_COMMAND_GO := docker run -it --rm -v $(shell pwd | awk -F '/src/github.com' '{printf $$1}'):/go -w /go/src/github.com/rms1000watt/dummy-golang-project golang:$(GO_DOCKER_VERSION) sh -c "$(GO_COMMAND_BUILD)"
 
 .PHONY: build
 build: build-go-docker build-docker
