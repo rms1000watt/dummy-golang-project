@@ -1,5 +1,5 @@
 FROM scratch
 
-COPY bin/dummy-server-linux /dummy-server-linux
+COPY bin/dummy-golang-project /dummy-golang-project
 
-ENTRYPOINT [ "/dummy-server-linux" ]
+ENTRYPOINT [ "/dummy-golang-project" ]

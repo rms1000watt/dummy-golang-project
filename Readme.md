@@ -15,9 +15,9 @@ Build, run, observe, stop:
 
 ```bash
 ./build.sh
-docker run -itd --rm --name dummy-server -p 9999:9999 rms1000watt/dummy-server:latest
+docker run -itd --rm --name dummy-golang-project -p 9999:9999 rms1000watt/dummy-golang-project:latest
 open http://localhost:9999/pizza
-docker stop dummy-server
+docker stop dummy-golang-project
 ```
 
 ## Old Build Process
