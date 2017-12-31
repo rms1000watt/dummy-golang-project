@@ -7,14 +7,27 @@ This is a dummy golang project used as reference for other projects such as: [ht
 ## Contents
 
 - [Usage](#usage)
+- [Old Build Process](#old-build-process)
 
 ## Usage
 
 Build, run, observe, stop:
 
 ```bash
-make
+./build.sh
 docker run -itd --rm --name dummy-server -p 9999:9999 rms1000watt/dummy-server:latest
 open http://localhost:9999/pizza
 docker stop dummy-server
 ```
+
+## Old Build Process
+
+This is kept for historic reasons. Usage:
+
+```bash
+cd old-build-process
+make
+cd ..
+```
+
+Then follow the run, observe & stop steps above.
