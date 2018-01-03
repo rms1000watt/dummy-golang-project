@@ -1,4 +1,4 @@
-ARG GO_DOCKER_VERSION=1.9.2-alpine3.7
+ARG GO_DOCKER_VERSION
 
 FROM golang:${GO_DOCKER_VERSION} as builder
 WORKDIR /go/src/github.com/rms1000watt/dummy-golang-project
