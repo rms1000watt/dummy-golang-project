@@ -1,0 +1,23 @@
+# Docs: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html
+version: 0.2
+
+env:
+  variables:
+    author-0: "ryan-0"
+  parameter-store:
+    author-1: "ryan-1"
+
+phases:
+  install:
+    commands:
+      - echo "Install deps here"
+  pre_build:
+    commands:
+      - echo "Log into where ever here (ecr)"
+  build:
+    commands:
+      - echo "docker build" here
+      - docker ps
+  post_build:
+    commands:
+      - echo "docker push here"
