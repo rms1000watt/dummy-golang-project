@@ -3,12 +3,13 @@ version: 0.2
 
 env:
   variables:
-    author-0: "ryan-0"
+    AUTHOR_0: "ryan-0"
 
 phases:
   install:
     commands:
       - echo "Install deps here"
+      - env
   pre_build:
     commands:
       - echo "Log into where ever here (ecr)"
