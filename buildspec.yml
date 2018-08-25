@@ -4,8 +4,6 @@ version: 0.2
 env:
   variables:
     author-0: "ryan-0"
-  parameter-store:
-    author-1: "ryan-1"
 
 phases:
   install:
