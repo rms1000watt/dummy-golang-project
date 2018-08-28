@@ -8,7 +8,9 @@ env:
 phases:
   install:
     commands:
-      - echo "Install deps here"
+      - apt update
+      - apt install curl -y
+      - curl http://ipinfo.io/ip
   pre_build:
     commands:
       - $(aws ecr get-login --region us-west-2 --no-include-email)
