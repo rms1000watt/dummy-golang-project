@@ -1,6 +1,6 @@
 ARG GO_DOCKER_VERSION
 
-FROM golang:${GO_DOCKER_VERSION} as builder
+FROM golang:1.11.0-alpine3.7 as builder
 WORKDIR /go/src/github.com/rms1000watt/dummy-golang-project
 COPY . .
 RUN go test
