@@ -9,14 +9,12 @@ phases:
   install:
     commands:
       - echo "Install deps here"
-      - env
   pre_build:
     commands:
-      - echo "Log into where ever here (ecr)"
+      - $(aws ecr get-login --region us-west-2 --no-include-email)
   build:
     commands:
-      - echo "docker build" here
-      - docker ps
+      - docker build -t 401319614350.dkr.ecr.us-west-2.amazonaws.com/dummy-golang-project:latest .
   post_build:
     commands:
-      - echo "docker push here"
+      - docker push 401319614350.dkr.ecr.us-west-2.amazonaws.com/dummy-golang-project:latest
