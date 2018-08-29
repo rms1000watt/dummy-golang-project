@@ -14,6 +14,7 @@ phases:
       - $(aws ecr get-login --region us-west-2 --no-include-email)
       - datetime="$(date +'%Y%m%d%H%M')"
       - version="$(cat .version)"
+      - git_hash=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - image=401319614350.dkr.ecr.us-west-2.amazonaws.com/dummy-golang-project
   build:
     commands:
@@ -21,10 +22,13 @@ phases:
   post_build:
     commands:
       - docker tag ${image}:latest ${image}:${datetime}
+      - docker tag ${image}:latest ${image}:${git_hash}
       - docker tag ${image}:latest ${image}:${version}
       - docker push ${image}:latest
       - docker push ${image}:${datetime}
+      - docker push ${image}:${git_hash}
       - docker push ${image}:${version}
+      - printf '[{"name":"dummy-golang-project","imageUri":"%s"}]' ${image}:${version} > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json
