@@ -1,0 +1,21 @@
+{
+  "taskDefinition": {
+    "family": "dummy-golang-project",
+    "containerDefinitions": [
+      {
+        "name": "dummy-golang-project",
+        "image": "401319614350.dkr.ecr.us-west-2.amazonaws.com/dummy-golang-project:latest",
+        "cpu": 100,
+        "portMappings": [
+          {
+            "protocol": "tcp",
+            "containerPort": 9999,
+            "hostPort": 80
+          }
+        ],
+        "memory": 128,
+        "essential": true
+      }
+    ]
+  }
+}

@@ -12,9 +12,22 @@ phases:
   pre_build:
     commands:
       - $(aws ecr get-login --region us-west-2 --no-include-email)
+      - datetime="$(date +'%Y%m%d%H%M')"
+      - version="$(cat .version)"
+      - git_hash="$(git log -n 1 --pretty=format:'%H')"
+      - image=401319614350.dkr.ecr.us-west-2.amazonaws.com/dummy-golang-project
   build:
     commands:
-      - docker build -t 401319614350.dkr.ecr.us-west-2.amazonaws.com/dummy-golang-project:latest .
+      - docker build -t ${image}:latest .
   post_build:
     commands:
-      - docker push 401319614350.dkr.ecr.us-west-2.amazonaws.com/dummy-golang-project:latest
+      - docker tag ${image}:latest ${image}:${datetime}
+      - docker tag ${image}:latest ${image}:${version}
+      - docker tag ${image}:latest ${image}:${git_hash}
+      - docker push ${image}:latest
+      - docker push ${image}:${datetime}
+      - docker push ${image}:${version}
+      - docker push ${image}:${git_hash}
+
+artifacts:
+  files: task-definition.json
