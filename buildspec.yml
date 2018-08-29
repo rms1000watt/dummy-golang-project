@@ -27,4 +27,4 @@ phases:
       - docker push ${image}:${version}
 
 artifacts:
-  files: task-definition.json
+  files: imagedefinitions.json
