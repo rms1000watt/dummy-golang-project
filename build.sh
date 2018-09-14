@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build rms1000watt/dummy-golang-project:latest .
+docker build -t rms1000watt/dummy-golang-project:latest .
